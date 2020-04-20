@@ -32,6 +32,18 @@ I will frequently update the current progress of this project.
 
 For now, we have none :)
 
+## Specifications and Documentation
+
+This project is being developed against ***QEMU i386***.
+
+We will port it to other platforms soon.
+
+Documentation will be uploaded soon.
+
+# Installation
+
+Soon to be uploaded
+
 ## Contributing
 
 Right now, contributions are restricted to my team members.
