@@ -15,7 +15,7 @@ Objectives of this project for college evaluations :-
 	2. Interrupt Handling
 	3. Screen and keyboard drivers.
 	4. Basic _libc_ purely for the current requirements.
-	5. _Filesystem_.
+	5. Filesystem.
 	6. Basic Memory Management.
 	7. Simple Shell.
 	8. Basic text editor.
