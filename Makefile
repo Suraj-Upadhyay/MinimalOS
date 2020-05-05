@@ -3,10 +3,10 @@ HEADERS = $(wildcard kernel/*.h drivers/*.h)
 
 OBJ = ${C_SOURCES:.c=.o}
 
-os-image.bin: boot_sect.bin kernel.bin
+os-image.bin: boot/boot_sect.bin kernel.bin
 		cat $^ > os-image.bin
 
-kernel.bin: kernel_entry.o ${OBJ}
+kernel.bin: boot/kernel_entry.o ${OBJ}
 		i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
 
 %.o: %.c ${HEADERS}
