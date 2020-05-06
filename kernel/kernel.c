@@ -1,5 +1,9 @@
+#include "../drivers/screen.h"
+
 void kernel_main(void)
 {
-	char *video_memory = (char*) 0xb8000;
-	*video_memory = 'X';
+	int i;
+	clear_screen();
+	for (i = 0; i < 25; i++)
+		print("MrSquanchee\n");
 }
