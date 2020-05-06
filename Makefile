@@ -10,7 +10,7 @@ kernel.bin: boot/kernel_entry.o ${OBJ}
 		i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
 
 %.o: %.c ${HEADERS}
-		i386-elf-gcc -o $@ -ffreestanding -c $^
+		i386-elf-gcc -o $@ -ffreestanding -c $<
 
 %.o: %.asm
 		nasm -f elf $< -o $@
