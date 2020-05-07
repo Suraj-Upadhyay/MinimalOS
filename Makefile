@@ -23,4 +23,4 @@ run: os-image.bin
 
 clean:
 		rm -rf *.bin *.dis *.o os-image.bin
-		rm -rf kernel/*.o boot/*.bin drivers/*.o boot/*.o
+		rm -rf kernel/*.o boot/*.bin drivers/*.o boot/*.o libc/*.o
