@@ -26,4 +26,5 @@ void kernel_main(void)
 	clear_screen();
 	for (i = 0; i < 25; i++)
 		print("MrSquanchee\n");
+	debug_success_msg("MrSquanchee");
 }

@@ -20,6 +20,7 @@
 #define PRIVATE_SCREEN_H
 #include "screen.h"
 #include "ports.h"
+#include "../libc/mem.h"
 
 // Define functions private to screen.h for internal use.
 
@@ -53,6 +54,28 @@ int get_offset_from_dim(int row, int col)
 	return (row * MAX_COLS + col) * 2;
 }
 
+int scroll(int offset)
+{
+	int i;
+	char *video_memory = (char *) VIDEO_MEMORY_ADDRESS;
+
+	if (offset < MAX_ROWS * MAX_COLS * 2)
+		return offset;
+
+	for (i = 0; i < MAX_ROWS - 1; i++)
+		mem_cpy(video_memory + 2 * i * MAX_COLS,
+				video_memory + 2 * (i + 1) * MAX_COLS,
+				2 * MAX_COLS);
+
+	offset = get_offset_from_dim(24, 0);
+	for (i = 0; i < MAX_COLS; i++) {
+		video_memory[offset++] = ' ';
+		video_memory[offset++] = WHITE_ON_BLACK;
+	}
+
+	return get_offset_from_dim(24, 0);
+}
+
 /* Print a single character at a time at the cell [row, col]. */
 void print_char(unsigned char ch, int row, int col, int color_attr)
 {
@@ -78,6 +101,7 @@ void print_char(unsigned char ch, int row, int col, int color_attr)
 		offset += 2;
 	}
 
+	offset = scroll(offset);
 	set_cursor(offset);
 }
 

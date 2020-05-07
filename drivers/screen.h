@@ -72,6 +72,7 @@ void set_cursor(int offset);
 int get_offset_from_dim(int row, int col);
 /* Prints a single character at col and row. */
 void print_char(unsigned char ch, int row, int col, int color_attr);
+int scroll(int offset);
 #endif /* define PRIVATE_SCREEN_H. */
 
 #endif /* define SCREEN_H. */
