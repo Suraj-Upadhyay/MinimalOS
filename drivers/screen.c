@@ -82,8 +82,12 @@ void print_char(unsigned char ch, int row, int col, int color_attr)
 	char *video_memory = (char *) VIDEO_MEMORY_ADDRESS;
 	int offset;
 
-	if (row >= MAX_ROWS || col >= MAX_COLS)
+	if (row >= MAX_ROWS || col >= MAX_COLS) {
+		offset = get_offset_from_dim(24, 79);
+		video_memory[offset++] = 'X';
+		video_memory[offset] = RED_ON_BLACK;
 		return;
+	}
 
 	if (!color_attr)
 		color_attr = WHITE_ON_BLACK;

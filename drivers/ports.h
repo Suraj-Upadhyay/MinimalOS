@@ -32,4 +32,4 @@ unsigned short port_word_in(unsigned short port);
 /* Write a word data to the specified port. */
 void port_word_out(unsigned short port, unsigned short data);
 
-#endif /* defined PORTS_H. */
+#endif /* !defined(PORTS_H). */
