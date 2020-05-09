@@ -2,7 +2,7 @@
 ; *  @brief: This module defines a simple global descriptor table for our
 ; *  		 32 bit operating system.
 ; *
-; *  Copyright (C) 2020  Suraj Upadhyay
+; *  Copyright (C) 2020  Suraj Upadhyay <usuraj35@gmail.com>
 ; *
 ; *  This program is free software: you can redistribute it and/or modify
 ; *  it under the terms of the GNU General Public License as published by

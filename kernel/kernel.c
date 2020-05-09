@@ -2,7 +2,7 @@
  *  @brief: This module supplies the kernel functions for the operating
  * 			system.
  *
- *  Copyright (C) 2020  Suraj Upadhyay
+ *  Copyright (C) 2020  Suraj Upadhyay <usuraj35@gmail.com>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
