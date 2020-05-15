@@ -1,4 +1,4 @@
-# Minmal OS
+# Minimal OS
 
 This _project_ is, ultimately, meant to be a fully **posix** compliant operating system.
 
@@ -9,22 +9,22 @@ multitasking, etc.
 
 ## Project Aims
 
-Objectives of this project for college evaluations :-
+Objectives of this project for college evaluations:-
 
-	1. Boot into 32-bit protected mode.
-	2. Interrupt Handling
-	3. Screen and keyboard drivers.
-	4. Basic _libc_ purely for the current requirements.
-	5. Filesystem.
-	6. Basic Memory Management.
-	7. Simple Shell.
-	8. Basic text editor.
-	9. User mode.
+    1. Boot into 32-bit protected mode.
+    2. Interrupt Handling
+    3. Screen and keyboard drivers.
+    4. Basic _libc_ purely for the current requirements.
+    5. Filesystem.
+    6. Basic Memory Management.
+    7. Simple Shell.
+    8. A basic text editor.
+    9. User mode.
 
-I would like to stretch my goals for :-
+I would like to stretch my goals to implement:-:-
 
-	1. Network Stack.
-	2. Basic Interpreter.
+    1. The Network Stack.
+    2. A Basic Interpreter.
 
 ## Current Progress
 
@@ -51,7 +51,7 @@ As said earlier, once this project leaves the examiners room, it will be open
 for all.
 
 P.S. If you do want to contribute to this project, you should open an issue asking to contribute
-and hopefully we can give you a feature to implement which is not in the above list.
+and hopefully, we can give you a feature to implement which is not in the above list.
 
 ## Post Scriptum
 
