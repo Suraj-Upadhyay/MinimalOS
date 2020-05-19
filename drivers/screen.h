@@ -20,6 +20,8 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
+#include <stdint.h>
+
 /* In text VGA mode the memory address mapped to the screen device starts
  * at 0xb8000.
  */
@@ -51,6 +53,7 @@ void clear_screen(void);
  * That is with WHITE_ON_BLACK.
  */
 void print_at(char *message, int row, int col);
+void print_hex(uint32_t hex);
 void print(char *message);
 
 /* Functions to write color attributed text to the screen.

@@ -18,6 +18,7 @@
  **/
 
 #define PRIVATE_SCREEN_H
+#include <stdint.h>
 #include "screen.h"
 #include "ports.h"
 #include "../libc/mem.h"
@@ -143,6 +144,23 @@ void print_at(char *message, int row, int col)
 void print(char *message)
 {
 	kprint(message, WHITE_ON_BLACK);
+}
+
+void print_hex(uint32_t hex)
+{
+	char *std_hex = "0x00000000";
+	int ch, iter = 8;
+	while (hex) {
+		ch = hex & 0x000000ff;
+		if (ch < 10)
+			ch += 48;
+		else
+			ch += 87;
+		std_hex[iter + 1] = ch;
+		iter--;
+		hex = hex >> 4;
+	}
+	print(std_hex);
 }
 
 /* Functions to print debug information. */
