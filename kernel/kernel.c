@@ -19,12 +19,13 @@
  **/
 
 #include "../drivers/screen.h"
+#include "../cpu/dt.h"
 
 void kernel_main(void)
 {
 	int i;
 	clear_screen();
-	for (i = 0; i < 25; i++)
-		print("MrSquanchee\n");
-	debug_success_msg("MrSquanchee");
+	init_dt();
+	asm volatile ("int $0x3");
+	asm volatile ("int $0x4");
 }
