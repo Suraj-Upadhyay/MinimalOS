@@ -20,9 +20,12 @@
 #ifndef MEM_H
 #define MEM_H
 
+#include <stdint.h>
+
 /* Copies _size_ bytes of data from src to dest
  * and returns the number of bytes acutally copied.
  */
 int mem_cpy(char *dest, char *src, int size);
+void *memset(void *dest, char c, int n);
 
 #endif /* !defined(MEM_H). */

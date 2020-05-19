@@ -27,3 +27,12 @@ int mem_cpy(char *dest, char *src, int size)
     }
     return i;
 }
+
+void *memset(void *dest, char c, int size)
+{
+	int i;
+	for (i = 0; i < size; i++) {
+		*((char *)dest + i) = c;
+	}
+	return dest;
+}
