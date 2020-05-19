@@ -1,7 +1,7 @@
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c)
-HEADERS = $(wildcard kernel/*.h drivers/*.h libc/*.h)
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c cpu/*.c)
+HEADERS = $(wildcard kernel/*.h drivers/*.h libc/*.h cpu/*.h)
 
-OBJ = ${C_SOURCES:.c=.o}
+OBJ = ${C_SOURCES:.c=.o cpu/gdt.o cpu/interrupt.o}
 
 os-image.bin: boot/boot_sect.bin kernel.bin
 		cat $^ > os-image.bin
@@ -23,4 +23,4 @@ run: os-image.bin
 
 clean:
 		rm -rf *.bin *.dis *.o os-image.bin
-		rm -rf kernel/*.o boot/*.bin drivers/*.o boot/*.o libc/*.o
+		rm -rf kernel/*.o boot/*.bin drivers/*.o boot/*.o libc/*.o cpu/*.o
