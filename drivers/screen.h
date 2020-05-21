@@ -54,6 +54,7 @@ void clear_screen(void);
  */
 void print_at(char *message, int row, int col);
 void print_hex(uint32_t hex);
+void print_dec(uint32_t dec);
 void print(char *message);
 
 /* Functions to write color attributed text to the screen.

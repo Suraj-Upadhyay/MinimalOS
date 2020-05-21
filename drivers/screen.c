@@ -175,6 +175,26 @@ void print_hex(uint32_t hex)
 	print(std_hex);
 }
 
+void print_dec(uint32_t dec)
+{
+	// Number of digits in largest 32-bit decimal number.
+	char *std_dec = "0000000000";
+	uint8_t digit, iter = 9;
+	/* Copy the Least Significat Digits one by one
+	 * into the standard decimal format. */
+	while (dec) {
+		digit = dec % 10;
+		digit += 48;
+		std_dec[iter--] = digit;
+		dec = dec / 10;
+	}
+	/* Eliminate leading zeroes. */
+	while (*std_dec == '0')
+		std_dec ++;
+
+	print(std_dec);
+}
+
 /* Functions to print debug information. */
 void debug_success_msg_at(char *message, int row, int col)
 {
