@@ -150,16 +150,28 @@ void print_hex(uint32_t hex)
 {
 	char *std_hex = "0x00000000";
 	int ch, iter = 8;
+	/* Copy the characters to the standard hexadecimal format
+	 * one by one with Least Significant Digits copied first. */
 	while (hex) {
-		ch = hex & 0x000000ff;
+		/* Retreive LSD. */
+		ch = hex & 0x0000000f;
 		if (ch < 10)
-			ch += 48;
+			ch += 48;	/* Numeric conversion. */
 		else
-			ch += 87;
+			ch += 87;	/* Alphabetical conversion. */
 		std_hex[iter + 1] = ch;
 		iter--;
 		hex = hex >> 4;
 	}
+	/* Eliminate insignificant zeroes. */
+	int preceding_zeroes = 0;
+	iter = 2;
+	while (std_hex[iter++] == '0')
+		preceding_zeroes++;
+	std_hex[preceding_zeroes] = '0';
+	std_hex[preceding_zeroes + 1] = 'x';
+	std_hex += preceding_zeroes;
+
 	print(std_hex);
 }
 
