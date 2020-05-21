@@ -27,5 +27,5 @@ void kernel_main(void)
 	clear_screen();
 	init_dt();
 	asm volatile ("int $0x3");
-	asm volatile ("int $0x4");
+	asm volatile ("int $0x20");
 }

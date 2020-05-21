@@ -20,6 +20,7 @@
 
 #include <stdint.h>
 #include "../drivers/screen.h"
+#include "../drivers/ports.h"
 #include "../libc/mem.h"
 #include "isr_st.h"
 #include "isr.h"
@@ -28,12 +29,27 @@
 idt_entry_t idt_entries[256];
 idt_register_t idt_register;
 
-// ISR and IRQ request handlers.
+// ISR request handler.
 void isr_handler(register_t reg)
 {
 	print("Received interrupt : ");
 	print_hex(reg.int_no);
 	print("\n");
+}
+
+// IRQ request handler.
+void irq_handler(register_t reg)
+{
+	/* Send an EOI (end of interrupt) signal to the PICs. */
+	// If this interrupt involved the slave PIC.
+	if (reg.int_no >= 40) {
+		port_byte_out(0xa0, 0x20);
+	}
+
+	port_byte_out(0x20, 0x20);
+
+	print("IRQ interrupt : ");
+	print_hex(reg.int_no);
 }
 
 // IDT Initialization Functions.
@@ -76,6 +92,35 @@ void init_idt()
 	set_idt_gate(29, (uint32_t)isr29, 0x08, 0x8e);
 	set_idt_gate(30, (uint32_t)isr30, 0x08, 0x8e);
 	set_idt_gate(31, (uint32_t)isr31, 0x08, 0x8e);
+
+	/* Remap PIC. */
+	port_byte_out(0x20, 0x11);
+	port_byte_out(0xa0, 0x11);
+	port_byte_out(0x21, 0x20);
+	port_byte_out(0xa1, 0x28);
+	port_byte_out(0x21, 0x04);
+	port_byte_out(0xa1, 0x02);
+	port_byte_out(0x21, 0x01);
+	port_byte_out(0xa1, 0x01);
+	port_byte_out(0x21, 0x00);
+	port_byte_out(0xa1, 0x00);
+
+	set_idt_gate(IRQ0, (uint32_t)irq0, 0x08, 0x8e);
+	set_idt_gate(IRQ1, (uint32_t)irq1, 0x08, 0x8e);
+	set_idt_gate(IRQ2, (uint32_t)irq2, 0x08, 0x8e);
+	set_idt_gate(IRQ3, (uint32_t)irq3, 0x08, 0x8e);
+	set_idt_gate(IRQ4, (uint32_t)irq4, 0x08, 0x8e);
+	set_idt_gate(IRQ5, (uint32_t)irq5, 0x08, 0x8e);
+	set_idt_gate(IRQ6, (uint32_t)irq6, 0x08, 0x8e);
+	set_idt_gate(IRQ7, (uint32_t)irq7, 0x08, 0x8e);
+	set_idt_gate(IRQ8, (uint32_t)irq8, 0x08, 0x8e);
+	set_idt_gate(IRQ9, (uint32_t)irq9, 0x08, 0x8e);
+	set_idt_gate(IRQ10, (uint32_t)irq10, 0x08, 0x8e);
+	set_idt_gate(IRQ11, (uint32_t)irq11, 0x08, 0x8e);
+	set_idt_gate(IRQ12, (uint32_t)irq12, 0x08, 0x8e);
+	set_idt_gate(IRQ13, (uint32_t)irq13, 0x08, 0x8e);
+	set_idt_gate(IRQ14, (uint32_t)irq14, 0x08, 0x8e);
+	set_idt_gate(IRQ15, (uint32_t)irq15, 0x08, 0x8e);
 
 	idt_flush((uint32_t)&idt_register);
 }
