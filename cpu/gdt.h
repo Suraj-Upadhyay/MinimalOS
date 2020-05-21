@@ -1,6 +1,6 @@
-/** @file : dt.h
- *  @brief: This module declares global and interrupt descriptor tables'
- *          initialization funciton.
+/** @file : dt.c
+ *  @brief: This module declares global descriptor table's initialization and its
+ *          helper functions.
  *
  *  Copyright (C) 2020  Suraj Upadhyay <usuraj35@gmail.com>
  *
@@ -18,11 +18,16 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-#ifndef DT_H
-#define DT_H
+#ifndef GDT_H
+#define GDT_H
 
-/* init_dt : Initializes and loads the Global Descriptor Table and
- * Interrupt Descriptor Table. */
-void init_dt(void);
+#include <stdint.h>
 
-#endif /* !defined(DT_H). */
+/* GDT Initialization functions. */
+/* gdt_flush is defined in assembly. */
+extern void gdt_flush(uint32_t);
+void init_gdt(void);
+void set_gdt_gate(int32_t index, uint32_t base, uint32_t size,
+			 	  uint8_t flags, uint8_t granularity);
+
+#endif /* !defined(GDT_H). */

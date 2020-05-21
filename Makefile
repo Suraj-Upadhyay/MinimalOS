@@ -1,7 +1,7 @@
 C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c cpu/*.c)
 HEADERS = $(wildcard kernel/*.h drivers/*.h libc/*.h cpu/*.h)
 
-OBJ = ${C_SOURCES:.c=.o cpu/gdt.o cpu/interrupt.o}
+OBJ = ${C_SOURCES:.c=.o cpu/gdt_flush.o cpu/interrupt.o}
 
 os-image.bin: boot/boot_sect.bin kernel.bin
 		cat $^ > os-image.bin
