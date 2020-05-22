@@ -29,6 +29,13 @@
 idt_entry_t idt_entries[256];
 idt_register_t idt_register;
 
+isr_t interrupt_handlers[256];
+
+void register_interrupt_handler(uint8_t n, isr_t handler)
+{
+	interrupt_handlers[n] = handler;
+}
+
 // ISR request handler.
 void isr_handler(register_t reg)
 {
@@ -48,8 +55,10 @@ void irq_handler(register_t reg)
 
 	port_byte_out(0x20, 0x20);
 
-	print("IRQ interrupt : ");
-	print_hex(reg.int_no);
+	if (interrupt_handlers[reg.int_no] != 0) {
+		isr_t handler = interrupt_handlers[reg.int_no];
+		handler(reg);
+	}
 }
 
 // IDT Initialization Functions.

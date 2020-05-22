@@ -1,6 +1,6 @@
-/** @file : kernel.c
- *  @brief: This module supplies the kernel functions for the operating
- * 			system.
+/** @file : timer.h
+ *  @brief: This module defines functions which initialize the Programmable
+ * 			Interrupt Timer (PIT).
  *
  *  Copyright (C) 2020  Suraj Upadhyay <usuraj35@gmail.com>
  *
@@ -18,14 +18,11 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-#include "../drivers/screen.h"
-#include "../cpu/dt.h"
-#include "../cpu/timer.h"
+#ifndef TIMER_H
+#define TIMER_H
 
-void kernel_main(void)
-{
-	clear_screen();
-	init_dt();
-	asm volatile("sti");
-	init_timer(50);
-}
+#include <stdint.h>
+
+void init_timer(uint32_t frequency);
+
+#endif /* !defined(TIMER_H). */
