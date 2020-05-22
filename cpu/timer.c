@@ -21,6 +21,7 @@
 #include <stdint.h>
 #include "../drivers/screen.h"
 #include "../drivers/ports.h"
+#include "../libc/function.h"
 #include "../cpu/isr_st.h"
 #include "../cpu/isr.h"
 #include "timer.h"
@@ -29,10 +30,8 @@ uint32_t tick = 0;
 
 static void timer_callback(register_t reg)
 {
+    UNUSED(reg); // To suppress the -Wunused-parameter warning.
     tick++;
-    print("Tick: ");
-    print_dec(tick);
-    print("\n");
 }
 
 void init_timer(uint32_t frequency)
