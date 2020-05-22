@@ -75,6 +75,7 @@ global irq15
 idt_flush :
 	mov eax, [esp + 4]
 	lidt [eax]
+	sti
 	ret
 
 isr_common_stub :

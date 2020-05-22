@@ -26,6 +26,5 @@ void kernel_main(void)
 {
 	clear_screen();
 	init_dt();
-	asm volatile("sti");
 	init_timer(50);
 }
