@@ -150,6 +150,12 @@ void print_hex(uint32_t hex)
 {
 	char *std_hex = "0x00000000";
 	int ch, iter = 8;
+
+	if (hex == 0) {
+		print("0x0");
+		return;
+	}
+
 	/* Copy the characters to the standard hexadecimal format
 	 * one by one with Least Significant Digits copied first. */
 	while (hex) {
@@ -170,16 +176,26 @@ void print_hex(uint32_t hex)
 		preceding_zeroes++;
 	std_hex[preceding_zeroes] = '0';
 	std_hex[preceding_zeroes + 1] = 'x';
-	std_hex += preceding_zeroes;
 
-	print(std_hex);
+	print(std_hex + preceding_zeroes);
+	// Cleanup the memory space for std_hex.
+	iter = 0;
+	while (iter < 10)
+		std_hex[iter++] = '0';
+	std_hex[1] = 'x';
 }
 
 void print_dec(uint32_t dec)
 {
 	// Number of digits in largest 32-bit decimal number.
 	char *std_dec = "0000000000";
-	uint8_t digit, iter = 9;
+	uint8_t digit, iter = 9, leading_zeroes = 0;
+
+	if (dec == 0) {
+		print("0");
+		return;
+	}
+
 	/* Copy the Least Significat Digits one by one
 	 * into the standard decimal format. */
 	while (dec) {
@@ -188,11 +204,17 @@ void print_dec(uint32_t dec)
 		std_dec[iter--] = digit;
 		dec = dec / 10;
 	}
-	/* Eliminate leading zeroes. */
-	while (*std_dec == '0')
-		std_dec ++;
 
-	print(std_dec);
+	/* Eliminate leading zeroes. */
+	while (std_dec[leading_zeroes] == '0')
+		leading_zeroes++;
+
+	print(std_dec + leading_zeroes);
+
+	// Cleanup the memory space for std_dec.
+	iter = 0;
+	while (iter < 10)
+		std_dec[iter++] = '0';
 }
 
 /* Functions to print debug information. */
