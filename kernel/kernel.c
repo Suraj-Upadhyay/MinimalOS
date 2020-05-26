@@ -19,6 +19,7 @@
  **/
 
 #include "../drivers/screen.h"
+#include "../drivers/keyboard.h"
 #include "../cpu/dt.h"
 #include "../cpu/timer.h"
 
@@ -27,4 +28,5 @@ void kernel_main(void)
 	clear_screen();
 	init_dt();
 	init_timer(50);
+	init_keyboard();
 }

@@ -26,25 +26,25 @@
 #include "screen.h"
 
 /* Macros for Non-Printable keys indicating their scancodes. */
-#define ESC				0x00 // "Escape" button.
-#define ENTER			0x1c // "Enter" button.
-#define LCNTRL			0x1d // Left "Control"
-#define LSHIFT			0x2a // Left "Shift"
-#define RSHIFT			0x36 // Right "Shift"
-#define LALT			0x38 // Left "Alt".
-#define CAPSLOCK		0x3a // "Capslock" button.
-#define NUMLOCK			0x45 // "Numlock" button.
-#define SCROLLOCK		0x46 // "ScrollLock" button.
-#define KHOME			0x47 // Keypad "Home" button.
-#define KUP				0x48 // Keypad "Up Arrow" button.
-#define KPGUP			0x49 // Keypad "Page Up" button.
-#define KLEFT			0x4b // Keypad "Left Arrow" button.
-#define KRIGHT			0x4d // Keypad "Right Arrow" button.
-#define KEND			0x4f // Keypad "End" button.
-#define KDOWN			0x50 // Keypad "Down Arrow" button.
-#define KPGDN			0x51 // Keypad "Page Down" button.
-#define KINSERT			0x52 // Keypad "Insert" button.
-#define KDEL			0x53 // Keypad "Delete" button.
+#define ESC             0x00 // "Escape" button.
+#define ENTER           0x1c // "Enter" button.
+#define LCNTRL          0x1d // Left "Control"
+#define LSHIFT          0x2a // Left "Shift"
+#define RSHIFT          0x36 // Right "Shift"
+#define LALT            0x38 // Left "Alt".
+#define CAPSLOCK        0x3a // "Capslock" button.
+#define NUMLOCK         0x45 // "Numlock" button.
+#define SCROLLOCK       0x46 // "ScrollLock" button.
+#define KHOME           0x47 // Keypad "Home" button.
+#define KUP             0x48 // Keypad "Up Arrow" button.
+#define KPGUP           0x49 // Keypad "Page Up" button.
+#define KLEFT           0x4b // Keypad "Left Arrow" button.
+#define KRIGHT          0x4d // Keypad "Right Arrow" button.
+#define KEND            0x4f // Keypad "End" button.
+#define KDOWN           0x50 // Keypad "Down Arrow" button.
+#define KPGDN           0x51 // Keypad "Page Down" button.
+#define KINSERT         0x52 // Keypad "Insert" button.
+#define KDEL            0x53 // Keypad "Delete" button.
 
 
 
