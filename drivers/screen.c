@@ -100,6 +100,11 @@ void print_char(unsigned char ch, int row, int col, int color_attr)
 	if (ch == '\n') {
 		row = offset / (2 * MAX_COLS);
 		offset = get_offset_from_dim(row + 1, 0);
+	} else if (ch == '\b') {
+		if (offset < 1)
+			return;
+		video_memory[--offset] = WHITE_ON_BLACK;
+		video_memory[--offset] = '\0';
 	} else {
 		video_memory[offset] = ch;
 		video_memory[offset + 1] = color_attr;
