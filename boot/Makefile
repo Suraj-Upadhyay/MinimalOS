@@ -5,5 +5,5 @@ all : boot_sect.bin kernel_entry.o
 		@echo ASM $<
 
 %.bin: %.asm
-		@nasm -f bin -I boot/ $< -o $@
+		@nasm -f bin -I ../include/asm/ $< -o $@
 		@echo ASM $<
