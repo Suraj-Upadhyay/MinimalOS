@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-#include "../drivers/screen.h"
-#include "../drivers/keyboard.h"
-#include "../cpu/dt.h"
-#include "../cpu/timer.h"
+#include "minimalos/drivers/screen.h"
+#include "minimalos/drivers/keyboard.h"
+#include "minimalos/cpu/dt.h"
+#include "minimalos/cpu/timer.h"
 
 void kernel_main(void)
 {

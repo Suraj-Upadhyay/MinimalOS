@@ -1,18 +1,18 @@
 C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c cpu/*.c)
-HEADERS = $(wildcard kernel/*.h drivers/*.h libc/*.h cpu/*.h)
+HEADERS = $(wildcard include/*/*.h)
 
 OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o cpu/gdt_flush.o}
 
 CC = i386-elf-gcc
 LD = i386-elf-ld
 
-CFLAGS = -g -ffreestanding -Wall -Wextra -m32
+CFLAGS = -g -ffreestanding -Wall -Wextra -m32 -Iinclude
 
 os-image.bin: boot/boot_sect.bin kernel.bin
 		@cat $^ > os-image.bin
 		@echo Built Successfully
 
-kernel.bin: boot/kernel_entry.o ${OBJ} ${ASM_OBJ}
+kernel.bin: boot/kernel_entry.o ${OBJ}
 		@${LD} -o $@ -Ttext 0x1000 $^ --oformat binary
 		@echo LD $<
 

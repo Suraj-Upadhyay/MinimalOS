@@ -17,9 +17,9 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-#include "dt.h"
-#include "isr.h"
-#include "gdt.h"
+#include "minimalos/cpu/dt.h"
+#include "minimalos/cpu/isr.h"
+#include "minimalos/cpu/gdt.h"
 
 void init_dt()
 {

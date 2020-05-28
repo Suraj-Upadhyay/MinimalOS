@@ -18,12 +18,11 @@
  **/
 
 #include <stdint.h>
-#include "../drivers/screen.h"
-#include "../drivers/ports.h"
-#include "../libc/function.h"
-#include "../cpu/isr.h"
-#include "keyboard.h"
-#include "screen.h"
+#include "minimalos/drivers/keyboard.h"
+#include "minimalos/drivers/screen.h"
+#include "minimalos/drivers/ports.h"
+#include "minimalos/libc/function.h"
+#include "minimalos/cpu/isr.h"
 
 /* Macros for Non-Printable keys indicating their scancodes. */
 #define ESC             0x00 // "Escape" button.

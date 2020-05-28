@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# IDE configuration files.
+.vscode/c_cpp_properties.json
+
 # Object files
 *.o
 *.ko

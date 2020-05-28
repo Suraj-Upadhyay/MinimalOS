@@ -19,11 +19,11 @@
  **/
 
 #include <stdint.h>
-#include "../drivers/screen.h"
-#include "../drivers/ports.h"
-#include "../libc/mem.h"
-#include "isr_st.h"
-#include "isr.h"
+#include "minimalos/drivers/screen.h"
+#include "minimalos/drivers/ports.h"
+#include "minimalos/libc/mem.h"
+#include "minimalos/cpu/isr_st.h"
+#include "minimalos/cpu/isr.h"
 
 // IDT Data Structures.
 idt_entry_t idt_entries[256];

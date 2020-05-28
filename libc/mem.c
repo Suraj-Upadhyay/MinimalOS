@@ -17,7 +17,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-#include "mem.h"
+#include "minimalos/libc/mem.h"
 
 int mem_cpy(char *dest, char *src, int size)
 {

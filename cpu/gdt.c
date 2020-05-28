@@ -19,8 +19,8 @@
  **/
 
 #include <stdint.h>
-#include "gdt_st.h"
-#include "gdt.h"
+#include "minimalos/cpu/gdt_st.h"
+#include "minimalos/cpu/gdt.h"
 
 // GDT Data Structures.
 gdt_entry_t gdt_entries[5];

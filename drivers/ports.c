@@ -17,7 +17,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-#include "ports.h"
+#include "minimalos/drivers/ports.h"
 
 unsigned char port_byte_in(unsigned short port)
 {

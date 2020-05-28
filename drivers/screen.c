@@ -19,9 +19,9 @@
 
 #define PRIVATE_SCREEN_H
 #include <stdint.h>
-#include "screen.h"
-#include "ports.h"
-#include "../libc/mem.h"
+#include "minimalos/drivers/screen.h"
+#include "minimalos/drivers/ports.h"
+#include "minimalos/libc/mem.h"
 
 // Define functions private to screen.h for internal use.
 
