@@ -30,17 +30,17 @@ uint32_t tick = 0;
 
 static void timer_callback(register_t reg)
 {
-    UNUSED(reg); // To suppress the -Wunused-parameter warning.
-    tick++;
+	UNUSED(reg); // To suppress the -Wunused-parameter warning.
+	tick++;
 }
 
 void init_timer(uint32_t frequency)
 {
-    register_interrupt_handler(32, timer_callback);
-    uint32_t divisor = 1193180 / frequency;
-    uint8_t low = (uint8_t)(divisor & 0xff);
-    uint8_t high = (uint8_t)((divisor >> 8) & 0xff);
-    port_byte_out(0x43, 0x36);
-    port_byte_out(0x40, low);
-    port_byte_out(0x40, high);
+	register_interrupt_handler(32, timer_callback);
+	uint32_t divisor = 1193180 / frequency;
+	uint8_t low = (uint8_t)(divisor & 0xff);
+	uint8_t high = (uint8_t)((divisor >> 8) & 0xff);
+	port_byte_out(0x43, 0x36);
+	port_byte_out(0x40, low);
+	port_byte_out(0x40, high);
 }

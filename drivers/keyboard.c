@@ -52,14 +52,14 @@ static void scancode_handler(uint8_t scancode);
 
 void init_keyboard()
 {
-    register_interrupt_handler(IRQ1, keyboard_callback);
+	register_interrupt_handler(IRQ1, keyboard_callback);
 }
 
 static void keyboard_callback(register_t reg)
 {
-    UNUSED(reg); // To suppress the -Wunused-parameter warning.
-    uint8_t scancode = port_byte_in(0x60);
-    scancode_handler(scancode);
+	UNUSED(reg); // To suppress the -Wunused-parameter warning.
+	uint8_t scancode = port_byte_in(0x60);
+	scancode_handler(scancode);
 }
 
 /* A helper function for keyboard callback. */
@@ -127,7 +127,7 @@ static void scancode_handler(uint8_t scancode)
 	if (numlock && scancode > 0x46 && scancode < 0x53)
 		offset++;
 
-    char letter = keyboard_layout[offset];
-    char str[2] = {letter, '\0'};
-    print(str);
+	char letter = keyboard_layout[offset];
+	char str[2] = {letter, '\0'};
+	print(str);
 }

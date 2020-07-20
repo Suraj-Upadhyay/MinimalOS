@@ -21,19 +21,19 @@
 
 [org 0x7c00]
 KERNELOFFSET equ 0x1000
-    mov [BOOT_DRIVE], dl
+	mov [BOOT_DRIVE], dl
 
-    mov bp, 0x9000
-    mov sp, bp
+	mov bp, 0x9000
+	mov sp, bp
 
-    mov bx, KERNELOFFSET
-    mov dh, 15
-    mov dl, [BOOT_DRIVE]
-    call disk_load
+	mov bx, KERNELOFFSET
+	mov dh, 15
+	mov dl, [BOOT_DRIVE]
+	call disk_load
 
-    call switch_to_pm
+	call switch_to_pm
 
-    jmp $
+	jmp $
 
 %include "print.asm"
 %include "32bit-switch.asm"
@@ -42,7 +42,7 @@ KERNELOFFSET equ 0x1000
 
 [bits 32]
 BEGIN_PM:
-    call KERNELOFFSET
+	call KERNELOFFSET
 
 jmp $
 

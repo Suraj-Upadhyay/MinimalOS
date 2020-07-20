@@ -65,8 +65,8 @@ int scroll(int offset)
 
 	for (i = 0; i < MAX_ROWS - 1; i++)
 		mem_cpy(video_memory + 2 * i * MAX_COLS,
-				video_memory + 2 * (i + 1) * MAX_COLS,
-				2 * MAX_COLS);
+			video_memory + 2 * (i + 1) * MAX_COLS,
+			2 * MAX_COLS);
 
 	offset = get_offset_from_dim(24, 0);
 	for (i = 0; i < MAX_COLS; i++) {

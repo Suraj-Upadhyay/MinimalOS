@@ -21,11 +21,11 @@
 
 int mem_cpy(char *dest, char *src, int size)
 {
-    int i;
-    for (i = 0; i < size; i++) {
-        *(dest + i) = *(src + i);
-    }
-    return i;
+	int i;
+	for (i = 0; i < size; i++) {
+		*(dest + i) = *(src + i);
+	}
+	return i;
 }
 
 void *memset(void *dest, char c, int size)

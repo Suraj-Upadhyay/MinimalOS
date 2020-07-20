@@ -28,6 +28,6 @@
 extern void gdt_flush(uint32_t);
 void init_gdt(void);
 void set_gdt_gate(int32_t index, uint32_t base, uint32_t size,
-			 	  uint8_t flags, uint8_t granularity);
+		  uint8_t flags, uint8_t granularity);
 
 #endif /* !defined(GDT_H). */

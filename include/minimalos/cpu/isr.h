@@ -102,7 +102,7 @@ void irq_handler(register_t reg);
 extern void idt_flush(uint32_t);
 void init_idt(void);
 void set_idt_gate(uint8_t index, uint32_t offset,
-				  uint16_t selector, uint8_t flags);
+		  uint16_t selector, uint8_t flags);
 
 typedef void (*isr_t)(register_t);
 
